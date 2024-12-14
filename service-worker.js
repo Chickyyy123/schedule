@@ -1,28 +1,21 @@
-self.addEventListener('install', (e) => {
-  e.waitUntil(
-      caches.open('daily-schedule-v1').then((cache) => {
-          // Cache files
-          return cache.addAll([
-              './',
-              './index.html',
-              './manifest.json',
-              './idea.png',
-          ]);
-      })
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open('daily-schedule-cache').then((cache) => {
+      return cache.addAll([
+        '/',
+        '/index.html',
+        '/manifest.json',
+        '/styles.css',  // Include your styles if external
+        '/script.js',   // Include your JavaScript if external
+      ]);
+    })
   );
 });
 
-self.addEventListener('activate', (e) => {
-  const cacheWhitelist = ['daily-schedule-v1'];
-  e.waitUntil(
-      caches.keys().then((cacheNames) => {
-          return Promise.all(
-              cacheNames.map((cacheName) => {
-                  if (!cacheWhitelist.includes(cacheName)) {
-                      return caches.delete(cacheName);
-                  }
-              })
-          );
-      })
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request).then((cachedResponse) => {
+      return cachedResponse || fetch(event.request);
+    })
   );
 });
