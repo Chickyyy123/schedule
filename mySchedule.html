@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <title>Daily Schedule</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        table th {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+        .checkbox {
+            margin-right: 10px;
+        }
+        .status {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Daily Schedule</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Activity</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5:30 AM - 6:00 AM</td>
+                    <td>Workout: 20-minute dumbbell or bodyweight routine for a full-body workout.</td>
+                    <td><input type="checkbox" class="checkbox" onclick="updateStatus(this)"><span class="status">Not complete yet 😞</span></td>
+                </tr>
+                <tr>
+                    <td>6:00 AM - 6:30 AM</td>
+                    <td>Breakfast: Scrambled eggs + whole-grain toast + avocado slices.</td>
+                    <td><input type="checkbox" class="checkbox" onclick="updateStatus(this)"><span class="status">Not complete yet 😞</span></td>
+                </tr>
+                <tr>
+                    <td>6:30 AM - 7:00 AM</td>
+                    <td>Personal Development: Spend time on a side hustle (e.g., blogging, dropshipping) or learning a skill like C#.</td>
+                    <td><input type="checkbox" class="checkbox" onclick="updateStatus(this)"><span class="status">Not complete yet 😞</span></td>
+                </tr>
+                <tr>
+                    <td>7:00 AM - 7:15 AM</td>
+                    <td>Get Ready: Prepare for work and gather anything you need for the day.</td>
+                    <td><input type="checkbox" class="checkbox" onclick="updateStatus(this)"><span class="status">Not complete yet 😞</span></td>
+                </tr>
+                <tr>
+                    <td>7:15 AM - 7:45 AM</td>
+                    <td>Commute to Work: Use this time to listen to a podcast, audiobook, or music.</td>
+                    <td><input type="checkbox" class="checkbox" onclick="updateStatus(this)"><span class="status">Not complete yet 😞</span></td>
+                </tr>
+                <tr>
+                    <td>8:00 AM - 5:00 PM</td>
+                    <td>Work Hours.</td>
+                    <td><input type="checkbox" class="checkbox" onclick="updateStatus(this)"><span class="status">Not complete yet 😞</span></td>
+                </tr>
+                <tr>
+                    <td>5:30 PM - 6:00 PM</td>
+                    <td>Commute: Return home and unwind.</td>
+                    <td><input type="checkbox" class="checkbox" onclick="updateStatus(this)"><span class="status">Not complete yet 😞</span></td>
+                </tr>
+                <tr>
+                    <td>6:00 PM - 6:30 PM</td>
+                    <td>Dinner: Grilled tofu or chicken + mixed greens + balsamic vinaigrette.</td>
+                    <td><input type="checkbox" class="checkbox" onclick="updateStatus(this)"><span class="status">Not complete yet 😞</span></td>
+                </tr>
+                <tr>
+                    <td>6:30 PM - 7:00 PM</td>
+                    <td>Relaxation or Family Time: Spend time with loved ones or relax by watching something you enjoy.</td>
+                    <td><input type="checkbox" class="checkbox" onclick="updateStatus(this)"><span class="status">Not complete yet 😞</span></td>
+                </tr>
+                <tr>
+                    <td>7:00 PM - 8:00 PM</td>
+                    <td>Personal Projects: Focus on your side hustle, like managing your Facebook pages or blogging.</td>
+                    <td><input type="checkbox" class="checkbox" onclick="updateStatus(this)"><span class="status">Not complete yet 😞</span></td>
+                </tr>
+                <tr>
+                    <td>8:00 PM - 8:30 PM</td>
+                    <td>Skill Development: Practice or learn something new, such as coding, graphic design, or WordPress.</td>
+                    <td><input type="checkbox" class="checkbox" onclick="updateStatus(this)"><span class="status">Not complete yet 😞</span></td>
+                </tr>
+                <tr>
+                    <td>8:30 PM - 9:00 PM</td>
+                    <td>Plan & Organize: Set your goals and tasks for the next day.</td>
+                    <td><input type="checkbox" class="checkbox" onclick="updateStatus(this)"><span class="status">Not complete yet 😞</span></td>
+                </tr>
+                <tr>
+                    <td>9:00 PM - 9:30 PM</td>
+                    <td>Unwind: Meditate, journal, or do light stretches to relax.</td>
+                    <td><input type="checkbox" class="checkbox" onclick="updateStatus(this)"><span class="status">Not complete yet 😞</span></td>
+                </tr>
+                <tr>
+                    <td>9:30 PM - 10:00 PM</td>
+                    <td>Prepare for Sleep: Get ready for bed and ensure a calm environment for restful sleep.</td>
+                    <td><input type="checkbox" class="checkbox" onclick="updateStatus(this)"><span class="status">Not complete yet 😞</span></td>
+                </tr>
+                <tr>
+                    <td>10:00 PM</td>
+                    <td>Sleep: Aim for 7–8 hours to wake up refreshed.</td>
+                    <td><input type="checkbox" class="checkbox" onclick="updateStatus(this)"><span class="status">Not complete yet 😞</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function updateStatus(checkbox) {
+            const statusSpan = checkbox.parentElement.querySelector('.status');
+            if (checkbox.checked) {
+                statusSpan.textContent = 'Complete 💖';
+            } else {
+                statusSpan.textContent = 'Not complete yet 😞';
+            }
+        }
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('service-worker.js')
+            .then((reg) => console.log('Service Worker Registered:', reg))
+            .catch((err) => console.log('Service Worker Registration Failed:', err));
+        }
+      </script>
+      
+</body>
+</html>
