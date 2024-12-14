@@ -3,7 +3,7 @@ self.addEventListener('install', (e) => {
       caches.open('daily-schedule-v1').then((cache) => {
         return cache.addAll([
           './',
-          './mySchedule.html',
+          './index.html',
           './manifest.json',
           './idea.png',
         ]);
